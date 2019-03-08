@@ -63,5 +63,8 @@ _ = plt.plot(x_test, Y_pred[:,1], color = (1,0,0,0.8), lw = 3)
 _ = plt.plot(x_test, Y_pred[:,2], color = (1,0,0,0.8), lw = 3)
 _ = plt.legend(fontsize = 12)
 plt.savefig('output.png', bbox_inches = 'tight')
-# plt.show(block = False)
+plt.show(block = False)
 
+### Coverage
+Y_pred = model.predict(x = x)
+np.mean((Y_pred[:,0,None] <= y) * (y <= Y_pred[:,2,None]))
