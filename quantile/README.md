@@ -31,12 +31,7 @@ def make_quantile(q):
     return loss
 ```
 
-which can take in a list of quantiles and will return a length-*q* loss function, allowing us to model several quantiles concurrently.
-
-Some references:
-- [A helpful stack exchange question](https://stats.stackexchange.com/questions/251600/quantile-regression-loss-function/252029)
-- [Deep quantile regression](https://towardsdatascience.com/deep-quantile-regression-c85481548b5a) (which helped me get started on this and notes the equivalence with the asymmetric Laplace likelihood)
-
+which can take in a list of quantiles and will return a multivariate loss function, allowing us to model several quantiles concurrently.
 
 ### Results
 
@@ -52,3 +47,7 @@ Notice that the model is able to pick up the heteroscedasticity in the data.
 - It seemed a lot of epochs were necessary.
 - The quality of the model may be difficult to assess in higher dimensions. If the underlying distribution is known (like the normal in the case of the example), you can compare the theoretical quantiles to the estimated quantiles.
 - An observed versus fitted plot may also be helpful in assessing the quality of the estimated quantiles. If the model is a good fit, the percentage of data points lying within the two outer bounds should roughly equal the difference of the two quantiles. So in the example, our outer quantiles are 0.1 and 0.9, so 80% of the data points should fall within our estimated quantiles (the percentage was 80.4%). This is called coverage.
+
+Some references:
+- [A helpful stack exchange question](https://stats.stackexchange.com/questions/251600/quantile-regression-loss-function/252029)
+- [Deep quantile regression](https://towardsdatascience.com/deep-quantile-regression-c85481548b5a) (which helped me get started on this and notes the equivalence with the asymmetric Laplace likelihood)
