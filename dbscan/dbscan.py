@@ -21,7 +21,7 @@ grid = np.linspace(np.floor(x.min()),
 plt.clf()
 _ = plt.hist(x, color = (0,0,0), bins = grid, label = "Raw data")
 _ = plt.legend(fontsize = 12)
-plt.savefig("uni_data.png")
+plt.savefig("plots/uni_data.png")
 plt.show(block = False)
 
 # Use k-NN to determine optimal epsilon
@@ -32,7 +32,7 @@ distances, _ = nbrs.kneighbors(x)
 plt.clf()
 _ = plt.plot(np.sort(np.mean(distances[:,1:], 1)), label = "Ordered mean distances")
 _ = plt.legend(fontsize = 12)
-plt.savefig("uni_dists.png")
+plt.savefig("plots/uni_dists.png")
 plt.show(block = False)
 
 # Do the clustering
@@ -53,7 +53,7 @@ for i in range(inds.shape[1]):
 
 _ = plt.hist(x[indq,0], color = (0,0,0), bins = grid, label = "Noise")
 _ = plt.legend(fontsize = 12)
-plt.savefig("uni_cluster.png")
+plt.savefig("plots/uni_cluster.png")
 plt.show(block = False)
 
 
@@ -68,7 +68,7 @@ x = np.vstack((np.random.randn(500, 2)*0.5 + (-1.5, 0.5),
 plt.clf()
 _ = plt.scatter(x[:,0], x[:,1], label = "Raw data")
 _ = plt.legend(fontsize = 12)
-plt.savefig("biv_data.png")
+plt.savefig("plots/biv_data.png")
 plt.show(block = False)
 
 # Use k-NN to determine optimal epsilon
@@ -79,7 +79,7 @@ distances, _ = nbrs.kneighbors(x)
 plt.clf()
 _ = plt.plot(np.sort(np.mean(distances[:,1:], 1)), label = "Order mean distances")
 _ = plt.legend(fontsize = 12)
-plt.savefig("biv_dists.png")
+plt.savefig("plots/biv_dists.png")
 plt.show(block = False)
 
 # Do the clustering
@@ -100,6 +100,6 @@ for i in range(inds.shape[1]):
 
 _ = plt.scatter(x[indq,0], x[indq,1], color = (0,0,0), label = "Noise")
 _ = plt.legend(fontsize = 12)
-plt.savefig("biv_cluster.png")
+plt.savefig("plots/biv_cluster.png")
 plt.show(block = False)
 
