@@ -27,7 +27,7 @@ plt.show(block = False)
 # Use k-NN to determine optimal epsilon
 minPts = 10
 nbrs = NearestNeighbors(n_neighbors = minPts).fit(x)
-distances, indices = nbrs.kneighbors(x)
+distances, _ = nbrs.kneighbors(x)
 
 plt.clf()
 _ = plt.plot(np.sort(np.mean(distances[:,1:], 1)), label = "Ordered mean distances")
@@ -74,7 +74,7 @@ plt.show(block = False)
 # Use k-NN to determine optimal epsilon
 minPts = 10
 nbrs = NearestNeighbors(n_neighbors = minPts).fit(x)
-distances, indices = nbrs.kneighbors(x)
+distances, _ = nbrs.kneighbors(x)
 
 plt.clf()
 _ = plt.plot(np.sort(np.mean(distances[:,1:], 1)), label = "Order mean distances")
