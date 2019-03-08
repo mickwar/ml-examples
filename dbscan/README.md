@@ -21,10 +21,10 @@ On the other hand, `eps` could be chosen using a k-nearest neighbors approach:
 
 The algorithm is used on two simulated data sets, each with two distinct clusters and some outliers.
 
-![](uni_data.png)
-![](uni_dists.png)
-![](uni_cluster.png)
+![](plots/uni_data.png)
+![](plots/uni_dists.png)
+![](plots/uni_cluster.png)
 
-![](biv_data.png)
-![](biv_dists.png)
-![](biv_cluster.png)
+![](plots/biv_data.png)
+![](plots/biv_dists.png)
+![](plots/biv_cluster.png)
