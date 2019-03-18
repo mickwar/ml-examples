@@ -39,6 +39,10 @@ b = max(np.max(y_test), np.max(y_pred))
 plt.clf()
 plt.scatter(y_test, y_pred)
 plt.plot([a,b],[a,b], color = (1,0.5,0))
+plt.xlabel('truth')
+plt.ylabel('prediction')
+plt.title('Test set predictions')
+plt.savefig('figs/fitted.png', bbox_inches = 'tight')
 plt.show(block = False)
 
 
@@ -47,7 +51,7 @@ plt.show(block = False)
 # we plot, and it also sorts by the importance value (I want to sort by variable
 # instead). Normally, xgb.plot_importance is fine, but in this example it's just
 # easier to see that how the first five variables differ from the last five.
-def myplot(importance_type = 'weight'):
+def myplot(importance_type = 'weight', out_file = None):
     imp = bst.get_score(importance_type = importance_type)
     sort_key = sorted(imp.keys())
     sort_val = []
@@ -57,12 +61,16 @@ def myplot(importance_type = 'weight'):
     sort_val.reverse()
     plt.clf()
     plt.barh(sort_key, sort_val)
+    plt.title(importance_type)
+    plt.ylabel('variable')
+    if out_file is not None:
+        plt.savefig(out_file, bbox_inches = 'tight')
     plt.show(block = False)
 
 
-myplot('weight')
-myplot('gain')
-myplot('cover')
-myplot('total_gain')
-myplot('total_cover')
+myplot('weight', 'figs/weight.png')
+myplot('gain', 'figs/gain.png')
+myplot('cover', 'figs/cover.png')
+myplot('total_gain', 'figs/total_gain.png')
+myplot('total_cover', 'figs/total_cover.png')
 
